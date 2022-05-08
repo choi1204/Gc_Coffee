@@ -95,7 +95,7 @@ public class ProductJdbcRepository implements ProductRepository {
 
     @Override
     public void deleteById(Long productId) {
-       jdbcTemplate.update("DELETE FROM products where id = :productId",Collections.singletonMap("productId", productId));
+       jdbcTemplate.update("DELETE FROM products where product_id = :productId",Collections.singletonMap("productId", productId));
     }
 
     private static final RowMapper<Product> productRowMapper = (rs, rowNum) -> {
