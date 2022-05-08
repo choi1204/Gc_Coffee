@@ -1,5 +1,6 @@
 package com.programmers.gccoffee.service;
 
+import com.programmers.gccoffee.exception.DuplicationException;
 import com.programmers.gccoffee.exception.EntityNotFoundException;
 import com.programmers.gccoffee.exception.ErrorCode;
 import com.programmers.gccoffee.model.entity.Category;
@@ -28,6 +29,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product save(Product product) {
+        if (productRepository.findByName(product.getName()).isPresent()) {
+            throw new DuplicationException(ErrorCode.PRODUCT_Duplicated_Name);
+        }
         return productRepository.insert(product);
     }
 
