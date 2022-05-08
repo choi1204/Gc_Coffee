@@ -23,7 +23,7 @@ public class ProductRestController {
 
     private final ProductService productService;
 
-//    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+//    @GetMapping(consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @GetMapping
     public ResponseEntity<List<ProductFindResponse>> productList(@RequestParam Optional<Category> category) {
         List<ProductFindResponse> productFindResponseList = category
@@ -35,8 +35,8 @@ public class ProductRestController {
         return ResponseEntity.ok(productFindResponseList);
     }
 
-//    @GetMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    @GetMapping("/{productId}")
+    @GetMapping(value = "/{productId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+//    @GetMapping("/{productId}")
     public ResponseEntity<ProductFindResponse> getProduct(@PathVariable Long productId) {
         Product product = productService.findById(productId);
         return ResponseEntity.ok(ProductFindResponse.of(product));
