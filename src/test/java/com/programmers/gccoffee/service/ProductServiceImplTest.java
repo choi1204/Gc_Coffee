@@ -1,7 +1,7 @@
 package com.programmers.gccoffee.service;
 
 import com.programmers.gccoffee.exception.EntityNotFoundException;
-import com.programmers.gccoffee.exception.ValidationException;
+import com.programmers.gccoffee.exception.DuplicationException;
 import com.programmers.gccoffee.model.entity.Category;
 import com.programmers.gccoffee.model.entity.Product;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,11 +14,9 @@ import org.springframework.test.context.ActiveProfiles;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -110,7 +108,7 @@ class ProductServiceImplTest {
         String description = "설명";
         LocalDateTime now = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS);
         Product product = new Product(name, category, price, description, now, now);
-        assertThatThrownBy(() -> productService.save(product)).isInstanceOf(ValidationException.class);
+        assertThatThrownBy(() -> productService.save(product)).isInstanceOf(DuplicationException.class);
     }
 
     @Test

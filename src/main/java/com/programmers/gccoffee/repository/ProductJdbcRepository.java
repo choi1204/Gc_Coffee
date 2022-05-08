@@ -1,7 +1,7 @@
 package com.programmers.gccoffee.repository;
 
 import com.programmers.gccoffee.exception.ErrorCode;
-import com.programmers.gccoffee.exception.ValidationException;
+import com.programmers.gccoffee.exception.DuplicationException;
 import com.programmers.gccoffee.model.entity.Category;
 import com.programmers.gccoffee.model.entity.Product;
 import lombok.RequiredArgsConstructor;
@@ -39,7 +39,7 @@ public class ProductJdbcRepository implements ProductRepository {
                     " VALUES(:productName, :category, :price, :description, :createdAt, :updatedAt)", parameter, keyHolder);
             product.keyGeneration(keyHolder);
         } catch (DuplicateKeyException e) {
-            throw new ValidationException(ErrorCode.PRODUCT_VALIDATION_ID);
+            throw new DuplicationException(ErrorCode.PRODUCT_Duplicated_ID);
         }
         return product;
     }
