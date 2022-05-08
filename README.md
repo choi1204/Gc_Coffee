@@ -1,13 +1,13 @@
 # Gc_Coffee
 
-온라인 웹사이트를 통해 커피 주문 웹페이지 제작
+온라인 웹사이트를 통해 커피 주문 관리 웹페이지 제작
 
 ##기술스택
 
 - Spring boot(+jdbc api)
+- Thymeleaf
 - React
 - MySql
-
 
 ##DB
 - Products
@@ -59,16 +59,19 @@ create table order_items
 ### Server(Spring boot)
 
 - Rest 형식의 Api 설계.
+- Thymeleaf를 활용한 MVC.
 - Jdbc api를 통해 DB 연동.
 - Cors 설정을 통한 Front와 통신.
-- @ControllerAdvice를 통한 예외 핸들링
+- @ControllerAdvice를 통한 예외 핸들링.
 - Spring-boot-validation을 통한 유효성 검사.
 - test 코드 작성.
 
 ### Front(React)
 
-- 주문 생성 페이지 제작.
-- 제품 관리 페이지 제작
+- 주문 생성 페이지 제작.(라우터 적용)
+
+### Front(Thymeleaf)
+- mvc 기반의 Product 관리 페이지
 
 ## 기존코드와의 차이점
 
