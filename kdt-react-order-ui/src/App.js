@@ -11,7 +11,7 @@ function App() {
         <Router>
             <Routes>
                 <Route path='/order' element={<Order/>}/>
-                <Route path='/product' element={<ProductList/>}/>
+                {/*<Route path='/product' element={<ProductList/>}/>*/}
             </Routes>
         </Router>
     );
