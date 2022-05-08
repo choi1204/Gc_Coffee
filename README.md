@@ -75,8 +75,9 @@ create table order_items
 
 ## 기존코드와의 차이점
 
-- PK값이 UUID가 아닌 DB의 Auto Increment를 사용한 Long 형식의 데이터타입.
+- PK값이 UUID가 아닌 MySQL의 Auto Increment를 사용한 Long 형식의 데이터타입.
 - 제품관리 페이지 제작.
 - @ControllerAdvice를 통한 예외 핸들링 추가.
 - validation을 통한 유효성 검사.
 
+\
