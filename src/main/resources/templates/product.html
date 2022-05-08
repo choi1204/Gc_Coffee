@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body class="container-fluid">
+
+<h2>Product Detail</h2>
+<form th:action="@{/product/delete/{productId} (productId = ${product.productId})}" method = "post">
+    <fieldset>
+        <div class="mb-3">
+            <label for="productId" class="form-label">Id</label>
+            <h6 th:text="${product.productId}" id="productId"></h6>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <h6 th:text="${product.productName}" id="exampleInputEmail1"></h6>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Category</label>
+            <h6 th:text="${product.category}" id="exampleInputPassword1"></h6>
+        </div>
+    </fieldset>
+    <button type = "submit" class="btn btn-primary btn-lg" role="button"  aria-disabled="true">Delete</button>
+    <a th:href = "@{/product}"class="btn btn-secondary btn-lg" role="button" aria-disabled="true">Return</a>
+</form>
