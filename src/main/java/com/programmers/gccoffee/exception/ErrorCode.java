@@ -10,7 +10,8 @@ public enum ErrorCode {
 
     PRODUCT_NOT_FOUND_ID(404, "PRODUCT-001", "없는 Product ID 입니다."),
     PRODUCT_NOT_FOUND_NAME(404, "PRODUCT-002", "없는 Product Name 입니다."),
-    PRODUCT_VALIDATION_ID(400, "PRODUCT-003", "중복된 아이디 입니다.");
+    PRODUCT_Duplicated_ID(400, "PRODUCT-003", "중복된 아이디 입니다."),
+    PRODUCT_Duplicated_Name(400, "PRODUCT-004", "중복된 이름 입니다.");
 
     private final int status;
     private final String codeName;
